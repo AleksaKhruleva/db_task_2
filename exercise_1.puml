@@ -1,4 +1,4 @@
-@startuml exercis_1
+@startuml exercise_1
 
 entity "Книга" as book {
     + ISBN
