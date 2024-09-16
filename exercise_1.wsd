@@ -1,0 +1,55 @@
+@startuml exercis_1
+
+entity "Книга" as book {
+    + ISBN
+    Год издания
+    Название
+    Автор
+    Количество страниц
+    Имя издательства [FK]
+}
+
+entity "Копия книги" as book_copy {
+    + ISBN [FK]
+    + Номер копии
+    Положение на полке
+    Запланированная дата возврата
+    Номер читателя [FK]
+}
+
+entity "Читатель" as reader {
+    + Номер читателя
+    Фамилия
+    Имя
+    Адрес
+    День рождения
+}
+
+entity "Издательство" as publisher {
+    + Имя
+    Адрес
+}
+
+entity "Категория" as category {
+    + Имя
+}
+
+entity "Книга-Категория" as book_category {
+    ISBN [FK]
+    Имя категории [FK]
+}
+
+entity "Категория-Подкатегория" as category_tree {
+    Имя категории [FK]
+    Имя подкатегории [FK]
+}
+
+publisher ||---|{ book : издает
+book ||---|{ book_copy : имеет копии
+reader ||-o{ book_copy : берет
+book ||---|{ book_category : принадлежит категории
+category ||---o{ book_category : содержит книги
+category ||----o{ category_tree : содержит подкатегорию
+category ||----o{ category_tree : является подкатегорией
+
+@enduml
