@@ -1,0 +1,18 @@
+@startuml pic_1
+
+entity "Квартира" as apartment {}
+
+entity "Дом" as house {}
+
+entity "Улица" as street {}
+
+entity "Город" as city {}
+
+entity "Страна" as country {}
+
+house ||-|{ apartment
+street ||-|{ house
+city ||-|{ street
+country ||-|{ city
+
+@enduml

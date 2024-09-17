@@ -1,0 +1,15 @@
+@startuml pic_2
+
+entity "Команда1" as team1 {}
+
+entity "Команда2" as team2 {}
+
+entity "Арбитр" as referee {}
+
+entity "Футбольный матч" as football_match {}
+
+football_match ||--|| team1
+football_match ||--|| team2
+football_match ||-|| referee
+
+@enduml

@@ -1,0 +1,12 @@
+@startuml pic_3
+
+entity "Человек" as person {}
+
+entity "Мама" as mom {}
+
+entity "Папа" as dad {}
+
+mom ||--|{ person
+dad ||--|{ person
+
+@enduml
